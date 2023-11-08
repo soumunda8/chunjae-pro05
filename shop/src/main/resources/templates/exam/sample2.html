@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 리스트</title>
+</head>
+<body>
+    <h2>리스트</h2>
+    <div th:text="${strList}"></div>
+    <hr />
+    <div>[[${strList}]]</div>
+    <div>
+        <th:block th:each="list : ${strList}">
+            <span>[[${list}]]</span>
+        </th:block>
+    </div>
+    <hr />
+    <h2>맵(Map)</h2>
+    <div th:text="${map}"></div>
+    <hr />
+    <div>[[${map}]]</div>
+    <div>
+        <th:block th:each="m : ${map}">
+            <span th:text="${m}"></span>
+        </th:block>
+    </div>
+    <hr />
+    <h2>셋(Set)</h2>
+    <div th:text="${set}"></div>
+    <hr />
+    <div>[[${set}]]</div>
+    <div>
+        <th:block th:each="s : ${set}">
+            <span>[[${s}]]</span>
+        </th:block>
+    </div>
+    <hr />
+    <script th:inline="javascript">
+        const list = [[${strList}]];
+        const map = [[${map}]];
+        const set = [[${set}]];
+        console.log(list);
+        console.log(map);
+        console.log(set);
+    </script>
+</body>
+</html>
